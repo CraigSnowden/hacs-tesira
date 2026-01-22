@@ -16,7 +16,7 @@ from . import get_tesira
 from .tesira import CommandFailedException, Tesira
 
 _LOGGER = logging.getLogger(__name__)
-DOMAIN = "tesira"
+DOMAIN = "tesira_ttp"
 CONF_MUTES = "mutes"
 
 quote = '"'
