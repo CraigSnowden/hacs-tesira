@@ -83,7 +83,7 @@ async def async_setup(hass: HomeAssistant, config):
     )
     hass.async_create_task(
         async_load_platform(
-            hass, "switch", DOMAIN, None, copy.deepcopy(reformatted_config)
+            hass, "switch", DOMAIN, copy.deepcopy(reformatted_config), copy.deepcopy(reformatted_config)
         ),
         eager_start=True,
     )
