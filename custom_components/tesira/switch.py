@@ -38,6 +38,7 @@ PLATFORM_SCHEMA = SWITCH_PLATFORM_SCHEMA.extend(
 async def async_setup_platform(
     hass: HomeAssistant, config: ConfigType, async_add_entities, discovery_info=None
 ):
+    config=discovery_info["switch"][0]
     _LOGGER.debug("Switch: %s", config)
     if config == {}:
         return
