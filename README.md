@@ -8,12 +8,12 @@ This is a **YAML-configured integration** (no Config Flow / UI setup).
 
 ## Overview
 
-- **Domain:** `tesira`
+- **Domain:** `tesira_ttp`
 - **Platforms:** `media_player`, `switch`
 - **Configuration:** `configuration.yaml`
 - **Connection:** SSH (via `asyncssh`)
 - **Protocol:** Tesira Text Protocol Server
-- **Service:** `tesira.send_command`
+- **Action:** `tesira_ttp.send_command`
 
 The integration maintains:
 - a command connection for control
@@ -53,7 +53,7 @@ This integration is configured entirely in `configuration.yaml`.
 ### Example configuration
 
 ```yaml
-tesira:
+tesira_ttp:
   - name: "Tesira DSP"
     ip_address: 192.168.1.50
     username: "admin"
@@ -68,7 +68,7 @@ tesira:
 
 ### Configuration options
 
-Each item under `tesira:` supports:
+Each item under `tesira_ttp:` supports:
 
 | Key | Required | Description |
 |----|----|----|
@@ -77,7 +77,7 @@ Each item under `tesira:` supports:
 | username | ✅ | SSH username |
 | password | ✅ | SSH password |
 | zones | ✅ | List of Source Selector instance IDs to expose as `media_player` entities |
-| mutes | ❌ | List of Input Block instance IDs used to create per-channel mute switches |
+| mutes | ❌ | List of Mute Block instance IDs used to create per-channel mute switches |
 
 ---
 
@@ -104,7 +104,7 @@ for real-time state updates.
 ### Switch (`switch`)
 
 For each instance ID listed under `mutes`, the integration:
-- Queries the input block  
+- Queries the mute block  
 - Discovers the number of channels  
 - Creates one mute switch per channel  
 
@@ -174,7 +174,7 @@ Send raw Tesira Text Protocol commands to a device.
 ### Example
 
 ```yaml
-action: tesira.send_command
+action: tesira_ttp.send_command
 target:
   entity_id: media_player.lounge_source_selector
 data:
