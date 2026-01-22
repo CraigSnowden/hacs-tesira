@@ -2,8 +2,8 @@
   "domain": "tesira",
   "name": "Tesira Control",
   "version": "1.0.0",
-  "documentation": "https://example.com",
-  "dependencies": [],
-  "codeowners": [],
+  "documentation": "https://github.com/dunnmj/hacs-tesira",
+  "issue_tracker": "https://github.com/dunnmj/hacs-tesira/issues",
+  "codeowners": ["@dunnmj"],
   "requirements": ["asyncssh"]
 }
