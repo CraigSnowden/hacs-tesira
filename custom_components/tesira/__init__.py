@@ -12,7 +12,7 @@ from homeassistant.helpers.discovery import async_load_platform
 
 from .tesira import Tesira
 
-DOMAIN = "tesira"
+DOMAIN = "tesira_ttp"
 CONF_ZONES = "zones"
 CONF_MUTES = "mutes"
 
