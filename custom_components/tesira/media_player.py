@@ -18,7 +18,7 @@ from homeassistant.helpers.typing import ConfigType
 from . import get_tesira
 from .tesira import CommandFailedException, Tesira
 
-DOMAIN = "tesira"
+DOMAIN = "tesira_ttp"
 SERVICE_NAME = "send_command"
 
 _LOGGER = logging.getLogger(__name__)
