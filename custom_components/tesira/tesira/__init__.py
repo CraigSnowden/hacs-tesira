@@ -245,6 +245,8 @@ class Tesira:
             )
         )
         input_map = {}
+        # Add "No Input" option for index 0
+        input_map["No Input"] = 0
         # Router inputLabel queries are 0-indexed (0, 1, 2...)
         # But set input command uses 1-indexed for actual inputs (0=no input, 1=first input, etc.)
         # So we query with 0-based indices but map to 1-based values
