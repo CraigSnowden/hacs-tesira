@@ -265,7 +265,7 @@ class Tesira:
         """Get current input routed to specific output."""
         value = self.parse_value(
             await self._send_command(
-                f'"{router_id}" get output {output_index}', expects_value=True
+                f'"{router_id}" get input {output_index}', expects_value=True
             )
         )
         return int(value)
@@ -273,7 +273,7 @@ class Tesira:
     async def set_router_output(self, router_id, output_index, input_index):
         """Route input to output."""
         await self._send_command(
-            f'"{router_id}" set output {output_index} {input_index}'
+            f'"{router_id}" set input {output_index} {input_index}'
         )
 
     async def get_level(self, instance_id):

@@ -310,7 +310,7 @@ class TesiraRouterOutput(MediaPlayerEntity):
             )
 
         # Subscribe to updates
-        await tesira.subscribe(router_id, f"output {output_index}", self._routing_callback)
+        await tesira.subscribe(router_id, f"input {output_index}", self._routing_callback)
         await tesira.subscribe(level_id, "level", self._volume_callback)
         await tesira.subscribe(level_id, "mute", self._mute_callback)
 
