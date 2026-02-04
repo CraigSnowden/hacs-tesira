@@ -119,9 +119,13 @@ Each router configuration requires:
 - **router_id**: The instance ID of the Router block in Tesira
 - **level_blocks**: A list of Level block instance IDs (one per output zone)
 
-The integration creates one `media_player` entity for each Level block in the list. The Level blocks are mapped to Router outputs in order (first Level block = output 0, second = output 1, etc.).
+The integration creates one `media_player` entity for each Level block in the list. The Level blocks are mapped to Router outputs in order (first Level block = output 1, second = output 2, etc.).
 
-**Note:** Router blocks use 0-indexed inputs and outputs in Tesira (unlike Source Selectors which are 1-indexed).
+**Important:** Router blocks in Tesira use:
+- **0-indexed inputs** (0, 1, 2, 3, 4 for a 5-input router)
+- **1-indexed outputs** (1, 2, 3, 4, 5 for a 5-output router)
+
+This is different from Source Selectors which are 1-indexed for both sources and outputs.
 
 **What each entity controls:**
 - **Source selection**: Routes any Router input to that specific output
