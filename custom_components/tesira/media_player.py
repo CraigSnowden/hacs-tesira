@@ -114,13 +114,13 @@ async def async_setup_platform(
 
             # Create entity for each output (1-indexed for Tesira protocol)
             for output_index, level_id in enumerate(level_blocks, start=1):
-                try:
-                    # Get output label
-                    output_label = await t.get_label(level_id)
-                except CommandFailedException:
-                    # Fallback naming
-                    router_name = TesiraSourceSelector.name_from_instance_id(router_id)
-                    output_label = f"{router_name} Output {output_index}"
+                # Derive output label from level instance tag (remove "Level" suffix)
+                output_label = TesiraSourceSelector.name_from_instance_id(level_id)
+                # Remove "Level" from the end if present
+                if output_label.endswith(" Level"):
+                    output_label = output_label[:-6]
+                elif output_label.endswith("Level"):
+                    output_label = output_label[:-5]
 
                 # Create entity
                 try:

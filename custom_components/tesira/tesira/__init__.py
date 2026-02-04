@@ -245,7 +245,9 @@ class Tesira:
             )
         )
         input_map = {}
-        for input_number in range(input_count):
+        # Note: inputLabel queries are 1-indexed, and set input also uses these same indices
+        # Index 0 is special (no input/disconnect) but has no label
+        for input_number in range(1, input_count + 1):
             input_name = self.parse_value(
                 await self._send_command(
                     f'"{instance_id}" get inputLabel {input_number}', expects_value=True
