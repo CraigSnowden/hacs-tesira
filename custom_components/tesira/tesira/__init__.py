@@ -245,15 +245,16 @@ class Tesira:
             )
         )
         input_map = {}
-        # Note: inputLabel queries are 1-indexed, and set input also uses these same indices
-        # Index 0 is special (no input/disconnect) but has no label
-        for input_number in range(1, input_count + 1):
+        # Router inputLabel queries are 0-indexed (0, 1, 2...)
+        # But set input command uses 1-indexed for actual inputs (0=no input, 1=first input, etc.)
+        # So we query with 0-based indices but map to 1-based values
+        for label_index in range(input_count):
             input_name = self.parse_value(
                 await self._send_command(
-                    f'"{instance_id}" get inputLabel {input_number}', expects_value=True
+                    f'"{instance_id}" get inputLabel {label_index}', expects_value=True
                 )
             )[1:-1]
-            input_map[input_name] = input_number
+            input_map[input_name] = label_index + 1
         return input_map
 
     async def get_label(self, instance_id):
