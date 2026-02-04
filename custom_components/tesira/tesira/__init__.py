@@ -279,23 +279,23 @@ class Tesira:
     async def get_level(self, instance_id):
         """Get volume level in dB from Level block."""
         value = self.parse_value(
-            await self._send_command(f'"{instance_id}" get level', expects_value=True)
+            await self._send_command(f'"{instance_id}" get level 1', expects_value=True)
         )
         return float(value)
 
     async def set_level(self, instance_id, db_value):
         """Set volume level in dB."""
-        await self._send_command(f'"{instance_id}" set level {db_value}')
+        await self._send_command(f'"{instance_id}" set level 1 {db_value}')
 
     async def get_mute(self, instance_id):
         """Get mute state from Level block."""
         value = self.parse_value(
-            await self._send_command(f'"{instance_id}" get mute', expects_value=True)
+            await self._send_command(f'"{instance_id}" get mute 1', expects_value=True)
         )
         return value.lower() == "true"
 
     async def set_level_mute(self, instance_id, mute):
         """Set mute state on Level block."""
         await self._send_command(
-            f'"{instance_id}" set mute {str(mute).lower()}'
+            f'"{instance_id}" set mute 1 {str(mute).lower()}'
         )
